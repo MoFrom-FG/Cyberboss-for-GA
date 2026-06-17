@@ -1,0 +1,32 @@
+# Local configuration and secrets
+.env
+**/.env
+GenericAgent-main/mykey.py
+GenericAgent-main/mykey.json
+
+# Runtime data
+cyberboss-data/
+.conda/
+.temp/
+.tools/
+**/state/
+**/.tmp/
+**/logs/
+**/tmp/
+**/temp/
+*.log
+*.pid
+timeline_screenshot*.png
+
+# Dependencies and caches
+**/node_modules/
+**/__pycache__/
+**/.pytest_cache/
+**/.mypy_cache/
+
+# Local editor files
+**/.vscode/
+
+# GenericAgent generated memory/runtime bridge files
+GenericAgent-main/memory/global_mem*.txt
+GenericAgent-main/assets/tmwd_cdp_bridge/config.js

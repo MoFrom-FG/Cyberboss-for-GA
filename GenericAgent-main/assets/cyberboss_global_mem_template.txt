@@ -1,0 +1,30 @@
+# [Global Memory - L2]
+
+## [USER_IDENTITY]
+用户身份、称呼、关系和长期偏好归属 WeChat 域：
+
+- 事实记忆: cyberboss-data/wechat-memory/users/{senderId}.md
+- 关系/操作记忆: cyberboss-data/wechat-memory/operational/{senderId}.md
+
+GA agent 只需要知道映射存在，不应读取或继承具体身份设定来改变自身角色。GA agent 默认使用中性称呼。
+
+## [TIMELINE]
+- 默认数据目录: cyberboss-data
+- 状态文件: cyberboss-data/timeline/timeline-state.json
+- 数据结构: facts['YYYY-MM-DD']['events']
+- 事件格式: {id, startAt(ISO), endAt(ISO), title}
+- 时间规范: 时间轴事件使用 ISO 时间戳；本地展示按 CyberBoss/Timeline 配置处理。
+- 写入优先级: 优先通过 CyberBoss MCP/SOP；只有明确需要且确认结构后才直接改 JSON。
+
+## [CYBERBOSS]
+- 工作区根: 仓库根目录，或 CYBERBOSS_WORKSPACE_ROOT 指定目录。
+- CyberBoss 根: cyberboss-main
+- GenericAgent 根: GenericAgent-main
+- 数据目录: cyberboss-data
+- 配置模板: .env.example；本地配置: cyberboss-main/.env
+- 账号 ID: 不在全局记忆中保存具体值；每次从 cyberboss-main/.env 的 CYBERBOSS_ACCOUNT_ID 或 cyberboss-data/accounts/ 动态确认。
+- MCP 桥接详情: memory/cyberboss_mcp_sop.md
+- 微信实操 SOP: cyberboss-main/templates/weixin-operations.md 和 cyberboss-main/templates/wechat-sops/
+
+## [PUBLIC_SETUP]
+公开仓库不包含个人数据、真实账号、聊天历史、密钥、.env、cyberboss-data 或本机绝对路径。首次使用应运行 1_install_cyberboss_ga.bat、2_key_for_ga.bat 和 3_env_for_cyberboss.bat。

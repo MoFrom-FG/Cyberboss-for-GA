@@ -1,0 +1,14 @@
+# [Global Memory Insight]
+需要时 read L2 或 ls ../memory/ 查 L3；不要把 WeChat 私人记忆写入 GA 全局记忆。
+L0(META-SOP): memory_management_sop | cyberboss_mcp_sop(仅 GA→CyberBoss/WeChat 域桥接；微信实操 SOP 在 cyberboss-main/templates/wechat-sops)
+L2: USER_IDENTITY→WeChat 域(勿用作 GA 称呼) | TIMELINE | CYBERBOSS | PUBLIC_SETUP
+L3: cyberboss_mcp_sop | delegate_sop(微信域任务委派：先讨论→subagent 后台→保持聊天) | memory_cleanup_sop | skill_search | ui_detect.py | ocr_utils.py | web_setup_sop | plan_sop | model_routing_sop | tmwebdriver_sop | autonomous_operation_sop | scheduled_task_sop | vision_sop | adb_ui.py
+CyberBoss: 记录/时间轴/提醒/位置/媒体发送/账号诊断优先读 cyberboss_mcp_sop，再按 wechat-router 进入对应 SOP。
+截图: 本地桌面→vision_sop/ocr；微信端/时间轴截图→cyberboss_mcp_sop + wechat-media-sop；禁全屏截图，优先窗口。
+
+[RULES]
+1. 域隔离: 用户身份/称呼/关系属 WeChat 域(cyberboss-data/wechat-memory/)，GA agent 禁止据此调整自身角色；GA 称呼保持中性("用户"/"你")。
+2. 涉及 CyberBoss 但当前不是已注入 weixin-operations 的微信运行时，先读 cyberboss_mcp_sop；若已注入 weixin-operations，则遵循其 W-L0→W-L1→W-L3 路由。
+3. CyberBoss MCP 禁用 --stdio；使用 node cyberboss-main/bin/cyberboss.js tool-mcp-server --account <accountId>，accountId 从 cyberboss-main/.env 或账号文件动态确认。
+4. 不在公开记忆中保存真实账号、密钥、联系人、聊天内容、会话路径或个人绝对路径。
+5. 读 SOP 禁凭印象；有固定脚本/模板时优先复用，复杂长任务先读 plan_sop。
